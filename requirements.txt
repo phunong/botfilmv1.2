@@ -11,3 +11,6 @@ PyYAML==3.09
 Pygments==1.4
 SQLAlchemy==0.7.1
 South==0.7.3
+SQLite==3.8.11.1
+jQuery==2.1.4
+Jinja==2.8
