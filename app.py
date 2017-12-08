@@ -42,14 +42,15 @@ def makeWebhookResult(req):
     con = sqlite3.connect('test.db')
         cur = con.cursor()
         con.text_factory = str
-        cur.execute("SELECT * FROM film_info WHERE film_name='%s'" %filmname)
+        film = ('The Girl Shaman',)
+        cur.execute("SELECT * FROM film_info WHERE film_name='%s'" %film)
         rows = cur.fetchall()
             for row in rows:
                 name = row[0]
                 link = row[1]
                 time = row[2]
                 quality = row[3]
-    speech="Thông Tin Phim:"+"\nTên Phim:\t" +name +"\t\nLink:\t"+link +"\t\nThời Lượng:\t"+time +"\t\nChất Lượng:\t"+quality                
+    speech="Thông Tin Phim:"+"\nTên Phim:\t" +filmname +"\nTên Phim 2:\t" +name +"\t\nLink:\t"+link +"\t\nThời Lượng:\t"+time +"\t\nChất Lượng:\t"+quality                
     con.close()
 #     speech="Thông Tin Phim:"+"\nTên Phim:\t" +filmname +"\t\nLink:\t"+link +"\t\nThời Lượng:\t"+time +"\t\nChất Lượng:\t"+quality
     print("Response:")
