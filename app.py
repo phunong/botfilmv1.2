@@ -38,6 +38,7 @@ def makeWebhookResult(req):
     result = req.get("result")
     parameters = result.get("parameters")
     filmname = parameters.get("film_name")
+    ss = filmname.get("$film_name")
 #  load
     con = sqlite3.connect('test.db')
         cur = con.cursor()
@@ -50,9 +51,9 @@ def makeWebhookResult(req):
                 link = row[1]
                 time = row[2]
                 quality = row[3]
-                if name ==filmname:
-                    speech="Thông Tin Phim:"+"\nTên Phim:\t" +filmname +"\nTên Phim 2:\t" +name +"\t\nLink:\t"+link +"\t\nThời Lượng:\t"+time +"\t\nChất Lượng:\t"+quality                
     con.close()
+    speech="Thông Tin Phim:"+"\nTên Phim:\t" +filmname +"\nTên Phim 2:\t" +name +"\t\nLink:\t"+link +"\t\nThời Lượng:\t"+time +"\t\nChất Lượng:\t"+quality                
+#     con.close()
 #     speech="Thông Tin Phim:"+"\nTên Phim:\t" +filmname +"\t\nLink:\t"+link +"\t\nThời Lượng:\t"+time +"\t\nChất Lượng:\t"+quality
     print("Response:")
     print(speech)
