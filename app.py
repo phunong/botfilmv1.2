@@ -38,27 +38,26 @@ def makeWebhookResult(req):
     parameters = result.get("parameters")
     filmname = parameters.get("film_name")
 # load
-#thay doi film =+filname
-    film = +filmname
     con = sqlite3.connect('test.db')
     cur =con.cursor()
     con.text_factory = str
-    cur.execute("SELECT * FROM film_info WHERE film_name='%s'"%film)
+    cur.execute("SELECT * FROM film_info WHERE film_name='%s'" %filmname)
     rows = cur.fetchall()
     for row in rows:
         name = row[0]
         link = row[1]
         time = row[2]
         quality = row[3]
-    speech="Thông Tin Phim:"+"\nTên Phim:\t" +name +"\t\nLink:\t"+link +"\t\nThời Lượng:\t"+time +"\t\nChất Lượng:\t"+quality
+        speech ="Thông tin" +filmname
+#     speech="Thông Tin Phim:"+"\nTên Phim:\t" name +"\t\nLink:\t"+link +"\t\nThời Lượng:\t"+time +"\t\nChất Lượng:\t"+quality
     con.close()
     print("Response:")
     print(speech)
     return {
         "speech": speech,
         "displayText": speech,
-        "data": speech,
-        "contextOut":speech,
+#         "data": speech,
+#         "contextOut":speech,
         "source": "NVPBOT"
     }
 if __name__ == '__main__':
