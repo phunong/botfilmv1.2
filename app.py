@@ -55,8 +55,8 @@ def makeWebhookResult(req):
     return {
         "speech": speech,
         "displayText": speech,
-        #"data": {},
-        #"contextOut": [],
+        "data": speech,
+        "contextOut":speech,
         "source": "NVPBOT"
     }
 if __name__ == '__main__':
