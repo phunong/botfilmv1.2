@@ -41,7 +41,7 @@ def makeWebhookResult(req):
     con = sqlite3.connect('test.db')
     cur =con.cursor()
     con.text_factory = str
-    cur.execute("SELECT * FROM film_info WHERE film_name='%s'" % filmname)
+    cur.execute("SELECT * FROM film_info WHERE film_name='%s'" %filmname)
     rows = cur.fetchall()
     for row in rows:
         name = row[0]
