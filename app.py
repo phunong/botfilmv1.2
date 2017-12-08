@@ -48,9 +48,9 @@ def makeWebhookResult(req):
         link = row[1]
         time = row[2]
         quality = row[3]
-        speech ="Thông tin" +filmname
+#         speech ="Thông tin" +filmname
     con.close()
-    speech="Thông Tin Phim:"+"\nTên Phim:\t" name +"\t\nLink:\t"+link +"\t\nThời Lượng:\t"+time +"\t\nChất Lượng:\t"+quality
+    speech="Thông Tin Phim:"+"\nTên Phim:\t" +name +"\t\nLink:\t"+link +"\t\nThời Lượng:\t"+time +"\t\nChất Lượng:\t"+quality
     print("Response:")
     print(speech)
     return {
