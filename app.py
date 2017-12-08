@@ -37,20 +37,20 @@ def makeWebhookResult(req):
     result = req.get("result")
     parameters = result.get("parameters")
     filmname = parameters.get("film_name")
-# load
-    con = sqlite3.connect('test.db')
-    cur =con.cursor()
-    con.text_factory = str
-    cur.execute("SELECT * FROM film_info WHERE film_name='%s'" %filmname)
-    rows = cur.fetchall()
-    for row in rows:
-        name = row[0]
-        link = row[1]
-        time = row[2]
-        quality = row[3]
+# # load
+#     con = sqlite3.connect('test.db')
+#     cur =con.cursor()
+#     con.text_factory = str
+#     cur.execute("SELECT * FROM film_info WHERE film_name='%s'" %filmname)
+#     rows = cur.fetchall()
+#     for row in rows:
+#         name = row[0]
+#         link = row[1]
+#         time = row[2]
+#         quality = row[3]
         speech ="Thông tin" +filmname
 #     speech="Thông Tin Phim:"+"\nTên Phim:\t" name +"\t\nLink:\t"+link +"\t\nThời Lượng:\t"+time +"\t\nChất Lượng:\t"+quality
-    con.close()
+#     con.close()
     print("Response:")
     print(speech)
     return {
