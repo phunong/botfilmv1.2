@@ -39,7 +39,7 @@ def makeWebhookResult(req):
     parameters = result.get("parameters")
     filmname = parameters.get("film_name")
 #  load
-    cur.execute("SELECT * FROM film_info WHERE film_name='%s'" %t)
+    cur.execute("SELECT * FROM film_info WHERE film_name='%s'" %filmname)
     rows = cur.fetchall()
     for row in rows:
         name = row[0]
