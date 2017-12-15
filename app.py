@@ -32,14 +32,14 @@ def webhook():
     return r
 
 def makeWebhookResult(req):
-    if req.get("result").get("action") != "filminfo":
+    if req.get("result").get("action") != "film.info":
         return {}
     
     result = req.get("result")
     parameters = result.get("parameters")
-    filmname = parameters.get("film_name")
+    film_name = parameters.get("film_name")
 #  load
-    cur.execute("SELECT * FROM film_info WHERE film_name='"+filmname"'")
+    cur.execute("SELECT * FROM film_info WHERE film_name=?,"film_name)
     rows = cur.fetchall()
     for row in rows:
         name = row[0]
